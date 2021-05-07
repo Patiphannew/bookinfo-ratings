@@ -53,5 +53,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Acceptance Test
-        run: echo "ENV_NAME=$( [ "$GITHUB_REF" == "refs/heads/master" ] && echo 'uat' || echo ${GITHUB_REF##*/} )" >> $GITHUB_ENV
         run: curl http://bookinfo.${{ env.ENV_NAME }}.opsta.net/student49/ratings/health | grep "Ratings is working"
